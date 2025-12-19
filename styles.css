@@ -269,6 +269,11 @@ a {
     justify-content: center;
 }
 
+.cta-button.compact {
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+}
+
 .arrow-icon {
     width: 18px;
     height: 18px;
@@ -763,6 +768,25 @@ a {
     flex-direction: column;
     align-items: center;
     gap: var(--space-lg);
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid transparent;
+    background:
+        linear-gradient(var(--ice-white), var(--ice-white)) padding-box,
+        var(--gradient-primary) border-box;
+    box-shadow: var(--shadow-lg);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
 }
 
 .experience-badge {
