@@ -35,6 +35,7 @@
 
     /* Typography */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Space Grotesk', 'Inter', sans-serif;
 
     /* Spacing */
     --space-xs: 0.5rem;
@@ -91,13 +92,14 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
     font-weight: 600;
     line-height: 1.2;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
-h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+h1 { font-size: clamp(2.25rem, 4.5vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+h3 { font-size: clamp(1.125rem, 2vw, 1.375rem); }
 
 p {
     color: var(--light-navy);
@@ -230,10 +232,10 @@ a {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    padding: var(--space-sm) var(--space-md);
+    padding: 0.75rem 1.25rem;
     border-radius: var(--radius-full);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     cursor: pointer;
     transition: var(--transition-normal);
     border: none;
@@ -287,9 +289,9 @@ a {
 .hero {
     position: relative;
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     align-items: center;
+    justify-content: center;
     padding: 8rem var(--space-md) var(--space-2xl);
     overflow: hidden;
     background: var(--gradient-dark);
@@ -346,8 +348,9 @@ a {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 600px;
-    padding-left: 10%;
+    max-width: 800px;
+    text-align: center;
+    padding: 0 var(--space-md);
 }
 
 .hero-badge {
@@ -406,6 +409,8 @@ a {
 
 .hero-points {
     margin-bottom: var(--space-lg);
+    display: inline-block;
+    text-align: left;
 }
 
 .hero-point {
@@ -414,18 +419,42 @@ a {
     gap: var(--space-sm);
     margin-bottom: var(--space-xs);
     color: var(--ice-white);
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .point-icon {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
+}
+
+/* Trust Badges */
+.trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--cold-grey);
+    font-size: 0.875rem;
+}
+
+.trust-badge svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--glacier-cyan);
 }
 
 .hero-ctas {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-sm);
-    margin-bottom: var(--space-xl);
 }
 
 .trust-indicators {
@@ -460,11 +489,7 @@ a {
 
 /* Hero Visual / AI Animation */
 .hero-visual {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none; /* Hidden for centered layout */
 }
 
 .ai-visualization {
@@ -1578,31 +1603,7 @@ a {
    ============================================ */
 @media (max-width: 1024px) {
     .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
         padding-top: 6rem;
-    }
-
-    .hero-content {
-        padding-left: 0;
-        max-width: 100%;
-    }
-
-    .hero-ctas {
-        justify-content: center;
-    }
-
-    .hero-points {
-        text-align: left;
-        display: inline-block;
-    }
-
-    .trust-indicators {
-        justify-content: center;
-    }
-
-    .hero-visual {
-        display: none;
     }
 
     .contact-wrapper {
@@ -1624,6 +1625,13 @@ a {
 
     .about-visual {
         order: -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .trust-badges {
+        flex-direction: column;
+        gap: var(--space-sm);
     }
 }
 
