@@ -319,7 +319,7 @@ Klicken Sie auf "Erstgespräch vereinbaren" um einen Termin zu buchen.`
  */
 function initScrollAnimations() {
     const revealElements = document.querySelectorAll(
-        '.service-card, .process-step, .stat-card, .testimonial-card'
+        '.service-card, .stat-card, .testimonial-card'
     );
 
     const observer = new IntersectionObserver((entries) => {
@@ -338,6 +338,47 @@ function initScrollAnimations() {
         el.style.transitionDelay = `${index * 0.1}s`;
         observer.observe(el);
     });
+
+    // Process Timeline Animation
+    initProcessTimeline();
+}
+
+/**
+ * Process Timeline Scroll Animation
+ */
+function initProcessTimeline() {
+    const steps = document.querySelectorAll('.process-step');
+    const connectors = document.querySelectorAll('.process-connector');
+
+    if (steps.length === 0) return;
+
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const step = entry.target;
+                const index = Array.from(steps).indexOf(step);
+
+                // Animate the step
+                setTimeout(() => {
+                    step.classList.add('animate-in');
+
+                    // Animate the connector after the step
+                    if (connectors[index]) {
+                        setTimeout(() => {
+                            connectors[index].classList.add('animate-in');
+                        }, 300);
+                    }
+                }, index * 200);
+
+                timelineObserver.unobserve(step);
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    steps.forEach(step => timelineObserver.observe(step));
 }
 
 /**
@@ -345,13 +386,19 @@ function initScrollAnimations() {
  */
 function initStatsCounter() {
     const counters = document.querySelectorAll('.counter');
+    const statCards = document.querySelectorAll('.stat-card');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 const target = parseInt(counter.dataset.target);
-                animateCounter(counter, target);
+                const card = counter.closest('.stat-card');
+
+                // Add counting class for pulse effect
+                if (card) card.classList.add('counting', 'animate-in');
+
+                animateCounter(counter, target, card);
                 observer.unobserve(counter);
             }
         });
@@ -359,7 +406,7 @@ function initStatsCounter() {
 
     counters.forEach(counter => observer.observe(counter));
 
-    function animateCounter(element, target) {
+    function animateCounter(element, target, card) {
         const duration = 2000; // 2 seconds
         const step = target / (duration / 16); // 60fps
         let current = 0;
@@ -369,6 +416,8 @@ function initStatsCounter() {
             if (current >= target) {
                 element.textContent = target;
                 clearInterval(timer);
+                // Remove counting class when done
+                if (card) card.classList.remove('counting');
             } else {
                 element.textContent = Math.floor(current);
             }
