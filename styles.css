@@ -1798,3 +1798,447 @@ a {
         opacity: 1;
     }
 }
+
+/* ============================================
+   ANIMATION ENHANCEMENTS
+   ============================================ */
+
+/* 1. HERO SECTION ANIMATIONS */
+
+/* Floating Particles */
+.hero-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--glacier-cyan);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: particleRise 8s infinite ease-in-out;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 1s; width: 3px; height: 3px; }
+.particle:nth-child(3) { left: 35%; animation-delay: 2s; }
+.particle:nth-child(4) { left: 50%; animation-delay: 0.5s; width: 5px; height: 5px; }
+.particle:nth-child(5) { left: 65%; animation-delay: 3s; }
+.particle:nth-child(6) { left: 75%; animation-delay: 1.5s; width: 3px; height: 3px; }
+.particle:nth-child(7) { left: 85%; animation-delay: 2.5s; }
+.particle:nth-child(8) { left: 90%; animation-delay: 4s; width: 6px; height: 6px; }
+
+@keyframes particleRise {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Logo Pulse Animation */
+.hero-logo-container {
+    animation: logoPulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoPulseGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 30px rgba(56, 225, 233, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 60px rgba(56, 225, 233, 0.6));
+    }
+}
+
+/* Hero Text Animation */
+.hero-title {
+    animation: heroTextFadeIn 1s ease-out forwards;
+}
+
+.hero-tagline {
+    opacity: 0;
+    animation: heroTextFadeIn 1s ease-out 0.3s forwards;
+}
+
+.hero-points {
+    opacity: 0;
+    animation: heroTextFadeIn 1s ease-out 0.5s forwards;
+}
+
+.hero-ctas {
+    opacity: 0;
+    animation: heroTextFadeIn 1s ease-out 0.7s forwards;
+}
+
+@keyframes heroTextFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. SERVICE CARDS HOVER EFFECTS */
+.service-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                box-shadow 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(13, 31, 51, 0.2);
+}
+
+.service-icon {
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: rotate(10deg) scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(56, 225, 233, 0.5));
+}
+
+.service-features li {
+    opacity: 0.8;
+    transform: translateX(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.service-card:hover .service-features li {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.service-card:hover .service-features li:nth-child(1) { transition-delay: 0.05s; }
+.service-card:hover .service-features li:nth-child(2) { transition-delay: 0.1s; }
+.service-card:hover .service-features li:nth-child(3) { transition-delay: 0.15s; }
+.service-card:hover .service-features li:nth-child(4) { transition-delay: 0.2s; }
+
+.service-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+}
+
+.service-card:hover .service-link::before {
+    width: 100%;
+}
+
+/* 3. PROCESS TIMELINE SCROLL ANIMATION */
+.process-step {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.process-step.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.process-connector {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+}
+
+.process-connector.animate-in {
+    transform: scaleY(1);
+}
+
+.step-number {
+    transition: transform 0.3s ease;
+}
+
+.process-step.animate-in .step-number {
+    animation: stepNumberPop 0.5s ease forwards;
+}
+
+@keyframes stepNumberPop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.step-icon {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.process-step.animate-in .step-icon {
+    animation: stepIconBounce 0.6s ease 0.3s forwards;
+}
+
+@keyframes stepIconBounce {
+    0% {
+        transform: scale(0) rotate(-10deg);
+    }
+    60% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+/* 4. STATISTICS COUNTER ENHANCEMENT */
+.stat-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(56, 225, 233, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.stat-card:hover::after {
+    left: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(13, 31, 51, 0.25);
+}
+
+.stat-number {
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover .stat-number {
+    transform: scale(1.05);
+}
+
+.stat-card.counting .stat-number {
+    animation: counterPulse 0.1s ease infinite;
+}
+
+@keyframes counterPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Progress bar under stats */
+.stat-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-top: var(--space-sm);
+    overflow: hidden;
+}
+
+.stat-progress-bar {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    width: 0;
+    transition: width 1.5s ease-out;
+}
+
+.stat-card.animate-in .stat-progress-bar {
+    width: 100%;
+}
+
+/* 5. CHATBOT TYPING ANIMATION ENHANCEMENT */
+.chatbot-messages .message {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: messageSlideIn 0.4s ease forwards;
+}
+
+@keyframes messageSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-content {
+    position: relative;
+}
+
+.bot-message .message-content p {
+    overflow: hidden;
+}
+
+/* Typewriter cursor effect for bot messages */
+.typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--glacier-cyan);
+    margin-left: 2px;
+    animation: cursorBlink 0.8s step-end infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Enhanced typing indicator */
+.typing-indicator {
+    padding: var(--space-xs) var(--space-md);
+}
+
+.typing-indicator span {
+    animation: typingBounce 1.4s infinite ease-in-out;
+}
+
+@keyframes typingBounce {
+    0%, 80%, 100% {
+        transform: translateY(0);
+        background: var(--glacier-cyan);
+    }
+    40% {
+        transform: translateY(-12px);
+        background: var(--polar-blue);
+    }
+}
+
+/* 6. PROFILE PHOTO HOVER EFFECT */
+.profile-photo {
+    position: relative;
+    transition: transform 0.4s ease;
+}
+
+.profile-photo::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    z-index: -1;
+    animation: borderRotate 4s linear infinite paused;
+}
+
+.profile-photo:hover::before {
+    animation-play-state: running;
+}
+
+@keyframes borderRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+}
+
+.profile-photo img {
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.profile-photo:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.05);
+}
+
+/* Experience badge animation */
+.experience-badge {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.experience-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(56, 225, 233, 0.2);
+}
+
+.exp-number {
+    transition: transform 0.3s ease;
+}
+
+.experience-badge:hover .exp-number {
+    animation: expNumberPulse 0.6s ease;
+}
+
+@keyframes expNumberPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Role tags stagger animation */
+.role-tags .role-tag {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: roleTagFadeIn 0.4s ease forwards;
+}
+
+.role-tags .role-tag:nth-child(1) { animation-delay: 0.1s; }
+.role-tags .role-tag:nth-child(2) { animation-delay: 0.2s; }
+.role-tags .role-tag:nth-child(3) { animation-delay: 0.3s; }
+.role-tags .role-tag:nth-child(4) { animation-delay: 0.4s; }
+.role-tags .role-tag:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes roleTagFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.role-tag {
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.role-tag:hover {
+    transform: translateY(-3px);
+    background: rgba(56, 225, 233, 0.2);
+}
