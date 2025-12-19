@@ -70,89 +70,103 @@ function initChatbot() {
     // Predefined responses for common queries (simulation)
     const responses = {
         'lead': {
-            title: 'Lead-Generierung mit KI',
-            content: `Basierend auf Ihrer Anfrage zur Lead-Generierung empfehlen wir folgende KI-Optimierungen:
+            title: 'AI-gestütztes Lead Scoring & Priorisierung',
+            content: `Basierend auf Ihrer Anfrage zeige ich Ihnen, wie AI Ihren Vertrieb produktiver macht:
 
 **1. Predictive Lead Scoring**
 • Automatische Bewertung von Leads nach Abschlusswahrscheinlichkeit
-• Priorisierung für Ihr Vertriebsteam
+• Priorisierung für SDRs und AEs
+• +20-40% höhere Vertriebsproduktivität
 
-**2. Intent-basierte Ansprache**
-• KI erkennt Kaufsignale in Echtzeit
-• Personalisierte Outreach-Nachrichten
+**2. Automatisierte Outbound- und Follow-up-Prozesse**
+• AI erkennt Kaufsignale in Echtzeit
+• Personalisierte Outreach-Sequenzen
 
-**3. Automatisierte Qualifizierung**
-• Chatbots für First-Level-Qualifizierung
-• Nahtlose Übergabe an Sales
+**3. Pipeline-Transparenz & Forecasting**
+• Deal-Risk-Scoring
+• Planbarere Umsätze
 
-Möchten Sie diese Optionen in einem kostenlosen Erstgespräch besprechen?`
+**Ergebnis:** Höhere Produktivität, bessere Abschlussquoten, weniger manuelle Arbeit.
+
+Möchten Sie in einem kostenlosen Erstgespräch Ihre konkreten Potenziale analysieren?`
         },
         'marketing': {
-            title: 'Marketing-Automatisierung',
-            content: `Für Ihre Marketing-Automatisierung bieten sich folgende KI-Tools an:
+            title: 'AI im Marketing – Content & Kampagnen',
+            content: `Für Ihre Marketing-Automatisierung bieten sich folgende AI-Hebel an:
 
-**1. Content-Erstellung**
-• KI-gestützte Texterstellung für Ads, E-Mails, Social Media
-• A/B-Test-Optimierung in Echtzeit
+**1. Automatisierte Content-Erstellung**
+• SEO-Texte, Ads, E-Mails, Social Media
+• 5-10× mehr Content-Output
 
-**2. Customer Journey Automation**
-• Personalisierte Touchpoints basierend auf Verhalten
+**2. Konsistentes Messaging**
+• Entlang der gesamten Customer Journey
 • Automatische Segmentierung
 
-**3. Performance-Analyse**
-• KI identifiziert Top-Performer-Kampagnen
-• Automatische Budget-Allokation
+**3. AI-gestützte Performance-Optimierung**
+• Kampagnen-Optimierung in Echtzeit
+• A/B-Testing Automation
+
+**Ergebnis:** Mehr qualifizierte Leads bei deutlich geringerem manuellen Aufwand.
 
 Soll ich ein konkretes Konzept für Ihr Unternehmen erstellen?`
         },
         'sales': {
-            title: 'Sales-Playbook Optimierung',
-            content: `Ihr Sales-Playbook kann durch KI signifikant verbessert werden:
+            title: 'Vertriebsproduktivität steigern',
+            content: `So kann AI Ihren Vertrieb transformieren:
 
-**1. Dynamische Playbooks**
-• Kontextabhängige Gesprächsleitfäden
-• Echtzeit-Einwandbehandlung
+**1. Entlastung von SDRs und AEs**
+• Automatisierte Outbound-Prozesse
+• Follow-up-Sequenzen ohne manuellen Aufwand
 
-**2. Predictive Analytics**
-• Vorhersage der besten nächsten Aktion
+**2. Pipeline-Transparenz**
+• Echtzeit-Forecasting
 • Deal-Risk-Scoring
 
-**3. Coaching & Training**
-• KI-analysierte Verkaufsgespräche
-• Individuelle Verbesserungsvorschläge
+**3. Bessere Abschlussquoten**
+• Kontextabhängige Gesprächsleitfäden
+• AI-analysierte Verkaufsgespräche
+
+**Typisches Ergebnis:** +20-40% höhere Vertriebsproduktivität, ROI innerhalb von 4-12 Wochen.
 
 Welcher Bereich hat für Sie die höchste Priorität?`
         },
         'daten': {
-            title: 'Datenanalyse & Insights',
-            content: `Für bessere Kundendaten-Analyse empfehlen wir:
+            title: 'CRM- und Workflow-Automatisierung',
+            content: `So reduzieren Sie manuelle Arbeit in CRM & Reporting:
 
-**1. Unified Customer View**
-• Zusammenführung aller Datenquellen
-• 360°-Kundenprofile
+**1. CRM-Automatisierung**
+• Automatische Datenanreicherung
+• Konsistente Datenqualität
 
-**2. Churn Prediction**
-• Früherkennung von Abwanderungsrisiken
-• Proaktive Maßnahmen
+**2. KPI-Dashboards**
+• Für Management und Vertrieb
+• Echtzeit-Transparenz
 
-**3. Customer Lifetime Value**
-• Präzise CLV-Berechnung
-• Gezielte Investition in High-Value-Kunden
+**3. Workflow-Optimierung**
+• Reduktion administrativer Arbeit
+• Weniger Reibungsverluste
+
+**Ergebnis:** Bessere Steuerung, höhere Transparenz, weniger operative Komplexität.
 
 Haben Sie bereits ein CRM-System im Einsatz?`
         },
         'default': {
             title: 'Danke für Ihre Nachricht',
-            content: `Vielen Dank für Ihre Anfrage! Unsere Experten werden diese analysieren.
+            content: `Vielen Dank für Ihre Anfrage! Ich setze AI nicht ein, um zu beeindrucken – sondern um messbare kommerzielle Ergebnisse zu erzielen.
 
-Um Ihnen bestmöglich zu helfen, empfehlen wir ein kostenloses 30-minütiges Erstgespräch.
+Um Ihnen bestmöglich zu helfen, empfehlen wir ein kostenloses Erstgespräch.
 
 **Was Sie erwartet:**
 • Analyse Ihrer aktuellen Prozesse
-• Identifikation von Quick Wins
-• Roadmap-Vorschlag für KI-Integration
+• Identifikation der AI-Hebel mit dem schnellsten ROI
+• Konkrete Handlungsempfehlungen
 
-Klicken Sie auf "Erstgespräch buchen" um einen Termin zu vereinbaren.`
+**Typische Ergebnisse meiner Kunden:**
+• +20-40% höhere Vertriebsproduktivität
+• 5-10× mehr Content-Output
+• ROI innerhalb von 4-12 Wochen
+
+Klicken Sie auf "Erstgespräch vereinbaren" um einen Termin zu buchen.`
         }
     };
 
