@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kontakt - Arctiq Institut für KI-Strategie. Kostenloses Erstgespräch vereinbaren. Prüfen Sie, wie AI in Vertrieb, Marketing oder Prozessen Mehrwert schafft.">
+    <title>Kontakt | Arctiq - Institut für KI-Strategie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Kontakt Page Specific Styles */
+        .kontakt-hero {
+            padding: 10rem 0 4rem;
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kontakt-hero .hero-background {
+            position: absolute;
+            inset: 0;
+        }
+
+        .kontakt-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .kontakt-hero h1 {
+            color: var(--ice-white);
+            margin-bottom: var(--space-md);
+        }
+
+        .kontakt-hero .subtitle {
+            font-size: 1.125rem;
+            color: var(--cold-grey);
+            line-height: 1.7;
+            margin-bottom: var(--space-xl);
+        }
+
+        /* Benefits Pills */
+        .erstgespraech-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+        }
+
+        .benefit-pill {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(56, 225, 233, 0.1);
+            border: 1px solid rgba(56, 225, 233, 0.3);
+            border-radius: var(--radius-full);
+            color: var(--glacier-cyan);
+            font-weight: 500;
+        }
+
+        .benefit-pill svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--glacier-cyan);
+        }
+
+        /* What We Discuss Section */
+        .was-wir-klaeren {
+            padding: var(--space-2xl) 0;
+            background: var(--ice-white);
+        }
+
+        .discuss-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+
+        @media (max-width: 800px) {
+            .discuss-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .discuss-text h2 {
+            color: var(--arctic-navy);
+            margin-bottom: var(--space-md);
+        }
+
+        .discuss-intro {
+            color: var(--light-navy);
+            font-size: 1.1rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .discuss-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--space-lg) 0;
+        }
+
+        .discuss-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-sm) 0;
+            color: var(--arctic-navy);
+            font-size: 1rem;
+        }
+
+        .discuss-list li svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--glacier-cyan);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .discuss-note {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+            padding: var(--space-md);
+            background: var(--soft-grey);
+            border-radius: var(--radius-md);
+        }
+
+        .discuss-note span {
+            color: var(--arctic-navy);
+            font-size: 0.95rem;
+        }
+
+        .discuss-note span:first-child {
+            font-weight: 600;
+            color: var(--polar-blue);
+        }
+
+        .discuss-visual {
+            background: var(--gradient-dark);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+        }
+
+        .discuss-visual-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-lg);
+            background: rgba(56, 225, 233, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .discuss-visual-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--glacier-cyan);
+        }
+
+        .discuss-visual h3 {
+            color: var(--ice-white);
+            font-size: 2.5rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .discuss-visual p {
+            color: var(--cold-grey);
+            font-size: 1rem;
+        }
+
+        /* Target Audience Section */
+        .fuer-wen {
+            padding: var(--space-2xl) 0;
+            background: var(--soft-grey);
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        @media (max-width: 800px) {
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .audience-roles {
+            background: var(--ice-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+        }
+
+        .audience-roles h3 {
+            color: var(--arctic-navy);
+            margin-bottom: var(--space-lg);
+            font-size: 1.25rem;
+        }
+
+        .role-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .role-list li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) 0;
+            color: var(--arctic-navy);
+            font-weight: 500;
+            border-bottom: 1px solid var(--soft-grey);
+        }
+
+        .role-list li:last-child {
+            border-bottom: none;
+        }
+
+        .role-list li svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--polar-blue);
+            flex-shrink: 0;
+        }
+
+        .audience-companies {
+            background: var(--ice-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+        }
+
+        .audience-companies h3 {
+            color: var(--arctic-navy);
+            margin-bottom: var(--space-lg);
+            font-size: 1.25rem;
+        }
+
+        .company-intro {
+            color: var(--light-navy);
+            margin-bottom: var(--space-md);
+        }
+
+        .company-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .company-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-sm) 0;
+            color: var(--light-navy);
+        }
+
+        .company-list li svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--glacier-cyan);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        /* What I Don't Offer Section */
+        .was-nicht {
+            padding: var(--space-2xl) 0;
+            background: var(--ice-white);
+        }
+
+        .nicht-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nicht-intro {
+            text-align: center;
+            color: var(--light-navy);
+            font-size: 1.1rem;
+            margin-bottom: var(--space-xl);
+        }
+
+        .nicht-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        @media (max-width: 700px) {
+            .nicht-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nicht-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-md);
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            border-radius: var(--radius-md);
+        }
+
+        .nicht-item svg {
+            width: 20px;
+            height: 20px;
+            stroke: #EF4444;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .nicht-item span {
+            color: var(--arctic-navy);
+            font-size: 0.95rem;
+        }
+
+        /* Confidentiality Section */
+        .vertraulich {
+            padding: var(--space-xl) 0;
+            background: var(--soft-grey);
+        }
+
+        .vertraulich-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-lg);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        @media (max-width: 500px) {
+            .vertraulich-content {
+                flex-direction: column;
+            }
+        }
+
+        .vertraulich-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--pale-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .vertraulich-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--polar-blue);
+        }
+
+        .vertraulich-text h3 {
+            color: var(--arctic-navy);
+            margin-bottom: var(--space-xs);
+            font-size: 1.25rem;
+        }
+
+        .vertraulich-text p {
+            color: var(--light-navy);
+            margin: 0;
+        }
+
+        /* Final CTA Section */
+        .kontakt-cta {
+            padding: var(--space-2xl) 0;
+            background: var(--gradient-dark);
+            text-align: center;
+        }
+
+        .kontakt-cta h2 {
+            color: var(--ice-white);
+            margin-bottom: var(--space-lg);
+        }
+
+        .kontakt-cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#38E1E9"/>
+                            <stop offset="100%" stop-color="#3A7DFF"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M25 5L45 42H35L25 24L15 42H5L25 5Z" fill="url(#logoGradient)"/>
+                    <path d="M25 18L32 32H18L25 18Z" fill="#0D1F33"/>
+                </svg>
+                <div class="logo-text-group">
+                    <span class="logo-text">Arctiq</span>
+                    <span class="logo-subtext">Institut für KI-Strategie</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#probleme">Herausforderungen</a></li>
+                <li><a href="leistungen.html">Leistungen</a></li>
+                <li><a href="index.html#prozess">Prozess</a></li>
+                <li><a href="ergebnisse.html">Ergebnisse</a></li>
+            </ul>
+            <a href="kontakt.html" class="cta-button nav-cta">Erstgespräch vereinbaren</a>
+            <button class="mobile-menu-toggle" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="kontakt-hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="kontakt-hero-content">
+                <div class="hero-badge">
+                    <span class="pulse"></span>
+                    Kontakt
+                </div>
+                <h1>Lassen Sie uns sprechen</h1>
+                <p class="subtitle">
+                    Wenn Sie prüfen möchten, ob und wie AI in Vertrieb, Marketing oder Prozessen bei Ihnen konkret Mehrwert schafft, freue ich mich auf ein Gespräch.
+                </p>
+
+                <p style="color: var(--ice-white); margin-bottom: var(--space-md);">Das Erstgespräch ist:</p>
+
+                <div class="erstgespraech-benefits">
+                    <span class="benefit-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        unverbindlich
+                    </span>
+                    <span class="benefit-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        kostenlos
+                    </span>
+                    <span class="benefit-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        fokussiert auf Ihre Situation
+                    </span>
+                </div>
+
+                <a href="#kontakt-form" class="cta-button primary">
+                    Kostenloses Erstgespräch vereinbaren
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WAS WIR IM GESPRÄCH KLÄREN
+         ============================================ -->
+    <section class="was-wir-klaeren">
+        <div class="container">
+            <div class="discuss-content">
+                <div class="discuss-text">
+                    <span class="section-badge">Was wir im Gespräch klären</span>
+                    <h2>In 30 Minuten besprechen wir:</h2>
+
+                    <ul class="discuss-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Ihre aktuellen Herausforderungen in Vertrieb, Marketing oder Prozessen
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Mögliche AI-Einsatzfelder mit realistischem ROI
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Ob und wie eine Zusammenarbeit sinnvoll ist
+                        </li>
+                    </ul>
+
+                    <div class="discuss-note">
+                        <span>Kein Pitch.</span>
+                        <span>Keine Vorbereitung notwendig.</span>
+                    </div>
+                </div>
+
+                <div class="discuss-visual">
+                    <div class="discuss-visual-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3>30 min</h3>
+                    <p>Fokussiertes Gespräch ohne Zeitverschwendung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FÜR WEN DAS GESPRÄCH SINNVOLL IST
+         ============================================ -->
+    <section class="fuer-wen">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Für wen das Gespräch sinnvoll ist</span>
+                <h2>Zielgruppe</h2>
+            </div>
+
+            <div class="audience-grid">
+                <div class="audience-roles">
+                    <h3>Entscheider & Führungskräfte</h3>
+                    <ul class="role-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Geschäftsführer / Managing Directors
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Vertriebs- und Marketingleitung
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Commercial / Revenue-Verantwortliche
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="audience-companies">
+                    <h3>Unternehmen, die:</h3>
+                    <ul class="company-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            ihre Vertriebs- oder Marketingprozesse effizienter machen möchten
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            AI nicht als Experiment, sondern als Business-Hebel verstehen
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            messbare Ergebnisse erwarten
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WAS ICH NICHT ANBIETE
+         ============================================ -->
+    <section class="was-nicht">
+        <div class="container">
+            <div class="nicht-content">
+                <div class="section-header">
+                    <span class="section-badge">Was ich typischerweise nicht anbiete</span>
+                    <h2>Damit Sie wissen, ob wir gut zusammenpassen</h2>
+                </div>
+
+                <div class="nicht-grid">
+                    <div class="nicht-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="15" y1="9" x2="9" y2="15"/>
+                            <line x1="9" y1="9" x2="15" y2="15"/>
+                        </svg>
+                        <span>Keine reinen Tool-Implementierungen ohne Business-Ziel</span>
+                    </div>
+                    <div class="nicht-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="15" y1="9" x2="9" y2="15"/>
+                            <line x1="9" y1="9" x2="15" y2="15"/>
+                        </svg>
+                        <span>Keine Buzzword- oder Innovations-Workshops ohne Umsetzung</span>
+                    </div>
+                    <div class="nicht-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="15" y1="9" x2="9" y2="15"/>
+                            <line x1="9" y1="9" x2="15" y2="15"/>
+                        </svg>
+                        <span>Keine langfristigen Beratungsverträge ohne klaren Scope</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         DISKRET & VERTRAULICH
+         ============================================ -->
+    <section class="vertraulich">
+        <div class="container">
+            <div class="vertraulich-content">
+                <div class="vertraulich-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                </div>
+                <div class="vertraulich-text">
+                    <h3>Diskret & vertraulich</h3>
+                    <p>Alle Gespräche behandle ich vertraulich. Auf Wunsch unterzeichne ich vorab eine NDA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT FORM / CTA
+         ============================================ -->
+    <section class="contact" id="kontakt-form">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-content">
+                    <span class="section-badge">Jetzt Termin sichern</span>
+                    <h2>Kostenloses Erstgespräch vereinbaren</h2>
+                    <p>Füllen Sie das Formular aus und ich melde mich innerhalb von 24 Stunden bei Ihnen.</p>
+                    <ul class="contact-benefits">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Unverbindlich & kostenlos
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            30 Minuten fokussiertes Gespräch
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            Konkrete Empfehlungen
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Ihr vollständiger Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail *</label>
+                            <input type="email" id="email" name="email" required placeholder="ihre@email.de">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Unternehmen</label>
+                            <input type="text" id="company" name="company" placeholder="Firmenname">
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Ihre Rolle</label>
+                            <select id="role" name="role">
+                                <option value="">Bitte wählen...</option>
+                                <option value="gf">Geschäftsführer / Managing Director</option>
+                                <option value="vertrieb">Vertriebsleitung</option>
+                                <option value="marketing">Marketingleitung</option>
+                                <option value="commercial">Commercial / Revenue</option>
+                                <option value="other">Andere</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Ihre Nachricht (optional)</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Worum geht es? Was ist Ihre aktuelle Herausforderung?"></textarea>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">
+                                Ich stimme der Verarbeitung meiner Daten gemäß der
+                                <a href="datenschutz.html">Datenschutzerklärung</a> zu. *
+                            </label>
+                        </div>
+                        <button type="submit" class="cta-button primary full-width">
+                            Erstgespräch vereinbaren
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <svg class="logo-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#38E1E9"/>
+                                    <stop offset="100%" stop-color="#3A7DFF"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M25 5L45 42H35L25 24L15 42H5L25 5Z" fill="url(#footerLogoGrad)"/>
+                            <path d="M25 18L32 32H18L25 18Z" fill="#0D1F33"/>
+                        </svg>
+                        <div class="logo-text-group">
+                            <span class="logo-text">Arctiq</span>
+                            <span class="logo-subtext">Institut für KI-Strategie</span>
+                        </div>
+                    </a>
+                    <p>AI für Vertrieb, Marketing & Prozesse – pragmatisch umgesetzt, messbar wirksam.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Leistungen</h4>
+                        <ul>
+                            <li><a href="leistungen.html#sales-engine">AI Sales Engine</a></li>
+                            <li><a href="leistungen.html#marketing-factory">AI Marketing Factory</a></li>
+                            <li><a href="leistungen.html#revops">RevOps & Prozesse</a></li>
+                            <li><a href="leistungen.html#audit">AI Commercial Audit</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Unternehmen</h4>
+                        <ul>
+                            <li><a href="index.html#ueber">Über mich</a></li>
+                            <li><a href="index.html#prozess">Prozess</a></li>
+                            <li><a href="kontakt.html">Kontakt</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Rechtliches</h4>
+                        <ul>
+                            <li><a href="impressum.html">Impressum</a></li>
+                            <li><a href="datenschutz.html">Datenschutz</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Arctiq – Institut für KI-Strategie. Alle Rechte vorbehalten.</p>
+                <div class="footer-badges">
+                    <span class="badge">DSGVO Konform</span>
+                    <span class="badge">Made in Germany</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
