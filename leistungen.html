@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arctiq Leistungen - AI für Vertrieb, Marketing & kommerzielle Prozesse. Modulare Services für messbare geschäftliche Wirkung.">
+    <title>Leistungen | Arctiq - Institut für KI-Strategie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Leistungen Page Specific Styles */
+        .leistungen-hero {
+            padding: 10rem 0 4rem;
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leistungen-hero .hero-background {
+            position: absolute;
+            inset: 0;
+        }
+
+        .leistungen-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .leistungen-hero h1 {
+            color: var(--ice-white);
+            margin-bottom: var(--space-md);
+        }
+
+        .leistungen-hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--cold-grey);
+            margin-bottom: var(--space-md);
+        }
+
+        .leistungen-hero .intro-text {
+            color: var(--cold-grey);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Service Module Section */
+        .service-module {
+            padding: var(--space-2xl) 0;
+            position: relative;
+        }
+
+        .service-module:nth-child(even) {
+            background: var(--soft-grey);
+        }
+
+        .service-module:nth-child(odd) {
+            background: var(--ice-white);
+        }
+
+        .module-header {
+            margin-bottom: var(--space-xl);
+        }
+
+        .module-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            background: var(--pale-cyan);
+            border: 1px solid rgba(56, 225, 233, 0.3);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--polar-blue);
+            margin-bottom: var(--space-sm);
+        }
+
+        .module-header h2 {
+            color: var(--arctic-navy);
+            margin-bottom: var(--space-sm);
+        }
+
+        .module-header .module-subtitle {
+            font-size: 1.125rem;
+            color: var(--light-navy);
+            margin-bottom: var(--space-md);
+        }
+
+        .module-goal {
+            background: var(--gradient-dark);
+            padding: var(--space-md) var(--space-lg);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .module-goal p {
+            color: var(--ice-white);
+            margin: 0;
+        }
+
+        .module-goal strong {
+            color: var(--glacier-cyan);
+        }
+
+        /* Module Grid Layout */
+        .module-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+        }
+
+        @media (max-width: 900px) {
+            .module-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Problem/Challenge Box */
+        .challenge-box {
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+        }
+
+        .challenge-box h3 {
+            color: var(--arctic-navy);
+            margin-bottom: var(--space-md);
+            font-size: 1.125rem;
+        }
+
+        .challenge-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .challenge-box li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-xs) 0;
+            color: var(--light-navy);
+        }
+
+        .challenge-box li::before {
+            content: '✗';
+            color: #EF4444;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .challenge-box .insight {
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(239, 68, 68, 0.2);
+            font-style: italic;
+            color: var(--arctic-navy);
+        }
+
+        /* Solution Box */
+        .solution-box {
+            background: var(--pale-cyan);
+            border: 1px solid rgba(56, 225, 233, 0.3);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+        }
+
+        .solution-box h3 {
+            color: var(--arctic-navy);
+            margin-bottom: var(--space-md);
+            font-size: 1.125rem;
+        }
+
+        .solution-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .solution-box li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-xs) 0;
+            color: var(--light-navy);
+        }
+
+        .solution-box li::before {
+            content: '✓';
+            color: var(--glacier-cyan);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* Use Cases & Results */
+        .use-cases-results {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        @media (max-width: 900px) {
+            .use-cases-results {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .use-cases {
+            background: var(--ice-white);
+            border: 1px solid var(--soft-grey);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+        }
+
+        .use-cases h4 {
+            color: var(--arctic-navy);
+            margin-bottom: var(--space-md);
+            font-size: 1rem;
+        }
+
+        .use-cases ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .use-cases li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-xs) 0;
+            color: var(--light-navy);
+            font-size: 0.95rem;
+        }
+
+        .use-cases li::before {
+            content: '→';
+            color: var(--polar-blue);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .results-box {
+            background: var(--gradient-dark);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+        }
+
+        .results-box h4 {
+            color: var(--ice-white);
+            margin-bottom: var(--space-md);
+            font-size: 1rem;
+        }
+
+        .results-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .results-box li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-xs) 0;
+            color: var(--ice-white);
+            font-size: 0.95rem;
+        }
+
+        .results-box li::before {
+            content: '✓';
+            color: var(--glacier-cyan);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* Module CTA */
+        .module-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-top: var(--space-xl);
+        }
+
+        /* How We Work Section */
+        .how-we-work {
+            padding: var(--space-2xl) 0;
+            background: var(--gradient-dark);
+        }
+
+        .how-we-work .section-header h2,
+        .how-we-work .section-header p {
+            color: var(--ice-white);
+        }
+
+        .work-principles {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        @media (max-width: 900px) {
+            .work-principles {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .work-principles {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .principle-card {
+            text-align: center;
+            padding: var(--space-lg);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            transition: var(--transition-normal);
+        }
+
+        .principle-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-4px);
+        }
+
+        .principle-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--space-md);
+            background: var(--pale-cyan);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .principle-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--polar-blue);
+        }
+
+        .principle-card h3 {
+            color: var(--ice-white);
+            font-size: 1rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .principle-card p {
+            color: var(--cold-grey);
+            font-size: 0.875rem;
+            margin: 0;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: var(--space-2xl) 0;
+            background: var(--ice-white);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            color: var(--arctic-navy);
+            margin-bottom: var(--space-lg);
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+
+        /* Audit Section Special Styling */
+        .audit-includes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        @media (max-width: 600px) {
+            .audit-includes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .audit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-md);
+            background: var(--pale-cyan);
+            border-radius: var(--radius-sm);
+        }
+
+        .audit-item svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--glacier-cyan);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .audit-item span {
+            color: var(--arctic-navy);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#38E1E9"/>
+                            <stop offset="100%" stop-color="#3A7DFF"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M25 5L45 42H35L25 24L15 42H5L25 5Z" fill="url(#logoGradient)"/>
+                    <path d="M25 18L32 32H18L25 18Z" fill="#0D1F33"/>
+                </svg>
+                <div class="logo-text-group">
+                    <span class="logo-text">Arctiq</span>
+                    <span class="logo-subtext">Institut für KI-Strategie</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#probleme">Herausforderungen</a></li>
+                <li><a href="leistungen.html" class="active">Leistungen</a></li>
+                <li><a href="index.html#prozess">Prozess</a></li>
+                <li><a href="index.html#ergebnisse">Ergebnisse</a></li>
+            </ul>
+            <a href="index.html#kontakt" class="cta-button nav-cta">Erstgespräch vereinbaren</a>
+            <button class="mobile-menu-toggle" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="leistungen-hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="leistungen-hero-content">
+                <div class="hero-badge">
+                    <span class="pulse"></span>
+                    Leistungen
+                </div>
+                <h1>AI für Vertrieb, Marketing & kommerzielle Prozesse</h1>
+                <p class="subtitle">Modulare Services für messbare geschäftliche Wirkung</p>
+                <p class="intro-text">
+                    Meine Leistungen sind modular aufgebaut und fokussieren sich auf konkrete geschäftliche Wirkung.
+                    Sie können einzelne Module beauftragen oder mehrere kombinieren – abhängig von Reifegrad, Zielsetzung und Organisation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         AI SALES ENGINE
+         ============================================ -->
+    <section class="service-module" id="sales-engine">
+        <div class="container">
+            <div class="module-header">
+                <span class="module-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="8.5" cy="7" r="4"/>
+                        <path d="M20 8v6M23 11h-6"/>
+                    </svg>
+                    Modul 1
+                </span>
+                <h2>AI Sales Engine</h2>
+                <p class="module-subtitle">KI-gestützte Vertriebsautomatisierung für B2B-Unternehmen</p>
+            </div>
+
+            <div class="module-goal">
+                <p><strong>Ziel:</strong> Mehr qualifizierte Opportunities, höhere Produktivität im Vertrieb und planbarer Umsatz.</p>
+            </div>
+
+            <div class="module-content">
+                <div class="challenge-box">
+                    <h3>Viele Vertriebsorganisationen arbeiten mit:</h3>
+                    <ul>
+                        <li>Manueller Lead-Qualifizierung</li>
+                        <li>Reaktiven Follow-ups</li>
+                        <li>Geringer Transparenz in der Pipeline</li>
+                    </ul>
+                    <p class="insight">AI entfaltet im Vertrieb dann Wirkung, wenn sie klar in Prozesse, Rollen und KPIs eingebettet ist.</p>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Was ich umsetze</h3>
+                    <ul>
+                        <li>AI-gestütztes Lead Scoring & Priorisierung</li>
+                        <li>Automatisierte Outbound- und Follow-up-Sequenzen</li>
+                        <li>Unterstützung von SDRs & AEs durch AI-Assistenten</li>
+                        <li>Pipeline-Transparenz & Forecasting</li>
+                        <li>Integration in bestehende CRM-Systeme</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="use-cases-results">
+                <div class="use-cases">
+                    <h4>Typische Anwendungsfälle</h4>
+                    <ul>
+                        <li>Zu viele Leads, zu wenig Fokus</li>
+                        <li>Geringe Abschlussquoten trotz hoher Aktivität</li>
+                        <li>Vertrieb verbringt zu viel Zeit mit Administration</li>
+                        <li>Unklare Forecasts und Pipeline-Qualität</li>
+                    </ul>
+                </div>
+
+                <div class="results-box">
+                    <h4>Ergebnisse</h4>
+                    <ul>
+                        <li>+20–40 % höhere Vertriebsproduktivität</li>
+                        <li>Mehr qualifizierte Termine</li>
+                        <li>Kürzere Sales-Zyklen</li>
+                        <li>Planbarere Umsätze</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module-cta">
+                <a href="index.html#kontakt" class="cta-button primary">
+                    Sales AI starten
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="index.html#kontakt" class="cta-button secondary">Kostenloses Erstgespräch vereinbaren</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         AI MARKETING FACTORY
+         ============================================ -->
+    <section class="service-module" id="marketing-factory">
+        <div class="container">
+            <div class="module-header">
+                <span class="module-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="3" y1="9" x2="21" y2="9"/>
+                        <line x1="9" y1="21" x2="9" y2="9"/>
+                    </svg>
+                    Modul 2
+                </span>
+                <h2>AI Marketing Factory</h2>
+                <p class="module-subtitle">Marketing-Automatisierung mit klarer Lead- und Umsatzorientierung</p>
+            </div>
+
+            <div class="module-goal">
+                <p><strong>Ziel:</strong> Mehr relevante Leads bei deutlich geringerem manuellem Aufwand.</p>
+            </div>
+
+            <div class="module-content">
+                <div class="challenge-box">
+                    <h3>Viele Marketing-Teams produzieren viel – aber:</h3>
+                    <ul>
+                        <li>Inhalte sind nicht konsistent</li>
+                        <li>Wirkung ist schwer messbar</li>
+                        <li>Content-Erstellung bindet enorme Ressourcen</li>
+                    </ul>
+                    <p class="insight">AI löst diese Probleme, wenn sie strategisch geführt wird.</p>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Was ich umsetze</h3>
+                    <ul>
+                        <li>Automatisierte Content-Erstellung (SEO, E-Mail, Social, Ads)</li>
+                        <li>Konsistentes Messaging entlang der Customer Journey</li>
+                        <li>AI-gestützte Kampagnen- und Performance-Optimierung</li>
+                        <li>Enge Verzahnung von Marketing und Vertrieb</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="use-cases-results">
+                <div class="use-cases">
+                    <h4>Typische Anwendungsfälle</h4>
+                    <ul>
+                        <li>Zu wenig Leads trotz hohem Marketing-Aufwand</li>
+                        <li>Inkonsistente Botschaften</li>
+                        <li>Abhängigkeit von Agenturen oder einzelnen Mitarbeitern</li>
+                        <li>Fehlende Verbindung zwischen Content und Umsatz</li>
+                    </ul>
+                </div>
+
+                <div class="results-box">
+                    <h4>Ergebnisse</h4>
+                    <ul>
+                        <li>5–10× höherer Content-Output</li>
+                        <li>Mehr qualifizierte Leads</li>
+                        <li>Geringere Kosten pro Lead</li>
+                        <li>Klare Messbarkeit des Marketing-ROI</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module-cta">
+                <a href="index.html#kontakt" class="cta-button primary">
+                    Marketing AI starten
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="index.html#kontakt" class="cta-button secondary">Leistungen besprechen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         REVOPS & PROZESSAUTOMATISIERUNG
+         ============================================ -->
+    <section class="service-module" id="revops">
+        <div class="container">
+            <div class="module-header">
+                <span class="module-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                    Modul 3
+                </span>
+                <h2>RevOps & Prozessautomatisierung</h2>
+                <p class="module-subtitle">AI-gestützte Optimierung von CRM, Prozessen und Steuerung</p>
+            </div>
+
+            <div class="module-goal">
+                <p><strong>Ziel:</strong> Transparente, skalierbare und effiziente kommerzielle Prozesse.</p>
+            </div>
+
+            <div class="module-content">
+                <div class="challenge-box">
+                    <h3>In vielen Organisationen sind:</h3>
+                    <ul>
+                        <li>CRM-Systeme historisch gewachsen</li>
+                        <li>Prozesse uneinheitlich</li>
+                        <li>Daten unvollständig oder inkonsistent</li>
+                    </ul>
+                    <p class="insight">AI kann hier massiv entlasten – wenn Prozesse zuerst sauber definiert werden.</p>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Was ich umsetze</h3>
+                    <ul>
+                        <li>CRM- & Workflow-Automatisierung</li>
+                        <li>AI-gestützte Datenanreicherung</li>
+                        <li>KPI- und Management-Dashboards</li>
+                        <li>Reduktion von manueller Administration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="use-cases-results">
+                <div class="use-cases">
+                    <h4>Typische Anwendungsfälle</h4>
+                    <ul>
+                        <li>Hoher administrativer Aufwand im Vertrieb</li>
+                        <li>Fehlende Transparenz für Management</li>
+                        <li>Unterschiedliche Arbeitsweisen im Team</li>
+                        <li>Schwierige Skalierung</li>
+                    </ul>
+                </div>
+
+                <div class="results-box">
+                    <h4>Ergebnisse</h4>
+                    <ul>
+                        <li>Weniger manuelle Arbeit</li>
+                        <li>Bessere Steuerung und Entscheidungsfähigkeit</li>
+                        <li>Einheitliche Prozesse</li>
+                        <li>Höhere Effizienz im gesamten Commercial-Bereich</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module-cta">
+                <a href="index.html#kontakt" class="cta-button primary">
+                    RevOps-Projekt anfragen
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="index.html#kontakt" class="cta-button secondary">Kostenloses Erstgespräch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         AI COMMERCIAL AUDIT
+         ============================================ -->
+    <section class="service-module" id="audit">
+        <div class="container">
+            <div class="module-header">
+                <span class="module-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    Einstieg
+                </span>
+                <h2>AI Commercial Audit</h2>
+                <p class="module-subtitle">Strukturierte Analyse & klare AI-Roadmap</p>
+            </div>
+
+            <div class="module-goal">
+                <p><strong>Ziel:</strong> Klarheit, Priorisierung und fundierte Entscheidungen.</p>
+            </div>
+
+            <div class="challenge-box" style="margin-bottom: var(--space-lg);">
+                <h3>Das AI Commercial Audit ist oft der beste Einstieg, um:</h3>
+                <ul>
+                    <li style="color: var(--arctic-navy);">Sinnvolle Use Cases zu identifizieren</li>
+                    <li style="color: var(--arctic-navy);">Fehlinvestitionen zu vermeiden</li>
+                    <li style="color: var(--arctic-navy);">Schnell Wirkung zu erzielen</li>
+                </ul>
+            </div>
+
+            <div class="solution-box">
+                <h3>Was das Audit umfasst</h3>
+                <div class="audit-includes">
+                    <div class="audit-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>Analyse von Vertrieb, Marketing, Prozessen & Tools</span>
+                    </div>
+                    <div class="audit-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>Bewertung von Datenqualität & Reifegrad</span>
+                    </div>
+                    <div class="audit-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>Identifikation konkreter AI-Use-Cases</span>
+                    </div>
+                    <div class="audit-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>Priorisierte Roadmap inkl. Business Case</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-box" style="margin-top: var(--space-lg); max-width: 500px;">
+                <h4>Ergebnisse</h4>
+                <ul>
+                    <li>Klare Entscheidungsgrundlage</li>
+                    <li>Fokus auf Maßnahmen mit schnellem ROI</li>
+                    <li>Transparenz für Management & Teams</li>
+                </ul>
+            </div>
+
+            <div class="module-cta">
+                <a href="index.html#kontakt" class="cta-button primary">
+                    AI Audit buchen
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="index.html#kontakt" class="cta-button secondary">Unverbindlich sprechen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         HOW WE WORK
+         ============================================ -->
+    <section class="how-we-work">
+        <div class="container">
+            <div class="section-header">
+                <h2>Wie wir zusammenarbeiten</h2>
+            </div>
+            <div class="work-principles">
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Klarer Scope</h3>
+                    <p>Definierte Ziele und Umfang von Anfang an</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Transparente Ergebnisse</h3>
+                    <p>Messbare KPIs und klare Dokumentation</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Enge Zusammenarbeit</h3>
+                    <p>Mit Führung und Teams vor Ort</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <h3>Fokus auf Umsetzung</h3>
+                    <p>Statt PowerPoint – echte Implementierung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FINAL CTA
+         ============================================ -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Jetzt prüfen, wo AI bei Ihnen wirklich wirkt</h2>
+            <div class="final-cta-buttons">
+                <a href="index.html#kontakt" class="cta-button primary">
+                    Kostenloses Erstgespräch vereinbaren
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="index.html#analyse" class="cta-button secondary">AI-Potenzialanalyse anfragen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <svg class="logo-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#38E1E9"/>
+                                    <stop offset="100%" stop-color="#3A7DFF"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M25 5L45 42H35L25 24L15 42H5L25 5Z" fill="url(#footerLogoGrad)"/>
+                            <path d="M25 18L32 32H18L25 18Z" fill="#0D1F33"/>
+                        </svg>
+                        <div class="logo-text-group">
+                            <span class="logo-text">Arctiq</span>
+                            <span class="logo-subtext">Institut für KI-Strategie</span>
+                        </div>
+                    </a>
+                    <p>AI für Vertrieb, Marketing & Prozesse – pragmatisch umgesetzt, messbar wirksam.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Leistungen</h4>
+                        <ul>
+                            <li><a href="#sales-engine">AI Sales Engine</a></li>
+                            <li><a href="#marketing-factory">AI Marketing Factory</a></li>
+                            <li><a href="#revops">RevOps & Prozesse</a></li>
+                            <li><a href="#audit">AI Commercial Audit</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Unternehmen</h4>
+                        <ul>
+                            <li><a href="index.html#ueber">Über mich</a></li>
+                            <li><a href="index.html#prozess">Prozess</a></li>
+                            <li><a href="index.html#kontakt">Kontakt</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Rechtliches</h4>
+                        <ul>
+                            <li><a href="impressum.html">Impressum</a></li>
+                            <li><a href="datenschutz.html">Datenschutz</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Arctiq – Institut für KI-Strategie. Alle Rechte vorbehalten.</p>
+                <div class="footer-badges">
+                    <span class="badge">DSGVO Konform</span>
+                    <span class="badge">Made in Germany</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
