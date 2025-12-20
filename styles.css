@@ -264,6 +264,28 @@ a {
     background: var(--pale-cyan);
 }
 
+/* Secondary buttons on dark backgrounds */
+.hero .cta-button.secondary,
+.contact .cta-button.secondary,
+.chatbot-section .cta-button.secondary,
+.final-cta .cta-button.secondary,
+.how-we-work .cta-button.secondary,
+.roi-section .cta-button.secondary {
+    color: var(--ice-white);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.hero .cta-button.secondary:hover,
+.contact .cta-button.secondary:hover,
+.chatbot-section .cta-button.secondary:hover,
+.final-cta .cta-button.secondary:hover,
+.how-we-work .cta-button.secondary:hover,
+.roi-section .cta-button.secondary:hover {
+    border-color: var(--glacier-cyan);
+    background: rgba(56, 225, 233, 0.1);
+    color: var(--glacier-cyan);
+}
+
 .cta-button.full-width {
     width: 100%;
     justify-content: center;
